@@ -1,0 +1,11 @@
+\\pcsfgen02\2007\wielf001.209\visual studio 2010\Projects\StationConsole\StationConsole\bin\Debug\StationConsole.exe
+\\pcsfgen02\2007\wielf001.209\visual studio 2010\Projects\StationConsole\StationConsole\bin\Debug\StationConsole.pdb
+\\pcsfgen02\2007\wielf001.209\visual studio 2010\Projects\StationConsole\StationConsole\bin\Debug\StationConsole.xml
+\\pcsfgen02\2007\wielf001.209\visual studio 2010\Projects\StationConsole\StationConsole\obj\x86\Debug\ResolveAssemblyReference.cache
+\\pcsfgen02\2007\wielf001.209\visual studio 2010\Projects\StationConsole\StationConsole\obj\x86\Debug\StationConsole.Form1.resources
+\\pcsfgen02\2007\wielf001.209\visual studio 2010\Projects\StationConsole\StationConsole\obj\x86\Debug\StationConsole.Resources.resources
+\\pcsfgen02\2007\wielf001.209\visual studio 2010\Projects\StationConsole\StationConsole\obj\x86\Debug\GenerateResource.read.1.tlog
+\\pcsfgen02\2007\wielf001.209\visual studio 2010\Projects\StationConsole\StationConsole\obj\x86\Debug\GenerateResource.write.1.tlog
+\\pcsfgen02\2007\wielf001.209\visual studio 2010\Projects\StationConsole\StationConsole\obj\x86\Debug\StationConsole.exe
+\\pcsfgen02\2007\wielf001.209\visual studio 2010\Projects\StationConsole\StationConsole\obj\x86\Debug\StationConsole.xml
+\\pcsfgen02\2007\wielf001.209\visual studio 2010\Projects\StationConsole\StationConsole\obj\x86\Debug\StationConsole.pdb
