@@ -1,0 +1,10 @@
+\\cwadsvr02\home$\klange\Visual Studio 2005\Projects\Convert to Hexadecimal\Convert to Hexadecimal\bin\Debug\Convert to Hexadecimal.exe
+\\cwadsvr02\home$\klange\Visual Studio 2005\Projects\Convert to Hexadecimal\Convert to Hexadecimal\bin\Debug\Convert to Hexadecimal.pdb
+\\cwadsvr02\home$\klange\Visual Studio 2005\Projects\Convert to Hexadecimal\Convert to Hexadecimal\bin\Debug\Convert to Hexadecimal.xml
+\\cwadsvr02\home$\klange\Visual Studio 2005\Projects\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\ResolveAssemblyReference.cache
+\\cwadsvr02\home$\klange\Visual Studio 2005\Projects\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\WindowsApplication1.Form1.resources
+\\cwadsvr02\home$\klange\Visual Studio 2005\Projects\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\WindowsApplication1.Resources.resources
+\\cwadsvr02\home$\klange\Visual Studio 2005\Projects\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\Convert to Hexadecimal.vbproj.GenerateResource.Cache
+\\cwadsvr02\home$\klange\Visual Studio 2005\Projects\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\Convert to Hexadecimal.exe
+\\cwadsvr02\home$\klange\Visual Studio 2005\Projects\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\Convert to Hexadecimal.xml
+\\cwadsvr02\home$\klange\Visual Studio 2005\Projects\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\Convert to Hexadecimal.pdb

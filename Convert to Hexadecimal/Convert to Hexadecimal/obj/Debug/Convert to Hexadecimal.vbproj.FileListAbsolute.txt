@@ -1,0 +1,36 @@
+D:\My Document (Crossways 13072012)\Visual Studio 2005\Projects\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\Convert to Hexadecimal.exe
+D:\My Document (Crossways 13072012)\Visual Studio 2005\Projects\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\Convert to Hexadecimal.xml
+D:\My Document (Crossways 13072012)\Visual Studio 2005\Projects\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\Convert to Hexadecimal.pdb
+D:\My Document (Crossways 13072012)\Visual Studio 2005\Projects\Convert to Hexadecimal\Convert to Hexadecimal\bin\Debug\Convert to Hexadecimal.exe
+D:\My Document (Crossways 13072012)\Visual Studio 2005\Projects\Convert to Hexadecimal\Convert to Hexadecimal\bin\Debug\Convert to Hexadecimal.pdb
+D:\My Document (Crossways 13072012)\Visual Studio 2005\Projects\Convert to Hexadecimal\Convert to Hexadecimal\bin\Debug\Convert to Hexadecimal.xml
+D:\My Document (Crossways 13072012)\Visual Studio 2005\Projects\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\ResolveAssemblyReference.cache
+D:\My Document (Crossways 13072012)\Visual Studio 2005\Projects\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\WindowsApplication1.Form1.resources
+D:\My Document (Crossways 13072012)\Visual Studio 2005\Projects\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\WindowsApplication1.Resources.resources
+D:\My Document (Crossways 13072012)\Visual Studio 2005\Projects\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\GenerateResource.read.1.tlog
+D:\My Document (Crossways 13072012)\Visual Studio 2005\Projects\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\GenerateResource.write.1.tlog
+M:\AS Computing 1213\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\Convert to Hexadecimal.exe
+M:\AS Computing 1213\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\Convert to Hexadecimal.xml
+M:\AS Computing 1213\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\Convert to Hexadecimal.pdb
+C:\Users\wielf001.209\Desktop\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\Convert to Hexadecimal.exe
+C:\Users\wielf001.209\Desktop\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\Convert to Hexadecimal.xml
+C:\Users\wielf001.209\Desktop\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\Convert to Hexadecimal.pdb
+C:\Users\wielf001.209\Desktop\Convert to Hexadecimal\Convert to Hexadecimal\bin\Debug\Convert to Hexadecimal.exe
+C:\Users\wielf001.209\Desktop\Convert to Hexadecimal\Convert to Hexadecimal\bin\Debug\Convert to Hexadecimal.pdb
+C:\Users\wielf001.209\Desktop\Convert to Hexadecimal\Convert to Hexadecimal\bin\Debug\Convert to Hexadecimal.xml
+C:\Users\wielf001.209\Desktop\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\wielf001.209\Desktop\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\WindowsApplication1.Form1.resources
+C:\Users\wielf001.209\Desktop\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\WindowsApplication1.Resources.resources
+C:\Users\wielf001.209\Desktop\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\GenerateResource.read.1.tlog
+C:\Users\wielf001.209\Desktop\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\GenerateResource.write.1.tlog
+D:\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\Convert to Hexadecimal.exe
+D:\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\Convert to Hexadecimal.xml
+D:\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\Convert to Hexadecimal.pdb
+D:\Convert to Hexadecimal\Convert to Hexadecimal\bin\Debug\Convert to Hexadecimal.exe
+D:\Convert to Hexadecimal\Convert to Hexadecimal\bin\Debug\Convert to Hexadecimal.pdb
+D:\Convert to Hexadecimal\Convert to Hexadecimal\bin\Debug\Convert to Hexadecimal.xml
+D:\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\ResolveAssemblyReference.cache
+D:\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\WindowsApplication1.Form1.resources
+D:\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\WindowsApplication1.Resources.resources
+D:\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\GenerateResource.read.1.tlog
+D:\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\GenerateResource.write.1.tlog
