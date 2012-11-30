@@ -60,7 +60,7 @@ Partial Class PriceSetterDlg
         '
         'NumericUpDown1
         '
-        Me.NumericUpDown1.DecimalPlaces = 2
+        Me.NumericUpDown1.DecimalPlaces = 3
         Me.NumericUpDown1.Increment = New Decimal(New Integer() {1, 0, 0, 131072})
         Me.NumericUpDown1.Location = New System.Drawing.Point(80, 10)
         Me.NumericUpDown1.Name = "NumericUpDown1"

@@ -19,6 +19,12 @@ StationConsole
 	<summary>
   A strongly-typed resource class, for looking up localized strings, etc.
 </summary>
+</member><member name="M:StationConsole.Form1.GetPumpSubform">
+	<summary>
+ Produce a new PumpForm attached to this window for worker threads to use.
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
 </member>
 </members>
 </doc>

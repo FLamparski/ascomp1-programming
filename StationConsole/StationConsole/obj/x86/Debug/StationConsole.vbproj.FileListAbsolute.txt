@@ -9,3 +9,16 @@
 \\pcsfgen02\2007\wielf001.209\visual studio 2010\Projects\StationConsole\StationConsole\obj\x86\Debug\StationConsole.exe
 \\pcsfgen02\2007\wielf001.209\visual studio 2010\Projects\StationConsole\StationConsole\obj\x86\Debug\StationConsole.xml
 \\pcsfgen02\2007\wielf001.209\visual studio 2010\Projects\StationConsole\StationConsole\obj\x86\Debug\StationConsole.pdb
+M:\Hosted Projects\ascomp1-programming\StationConsole\StationConsole\obj\x86\Debug\StationConsole.exe
+M:\Hosted Projects\ascomp1-programming\StationConsole\StationConsole\obj\x86\Debug\StationConsole.xml
+M:\Hosted Projects\ascomp1-programming\StationConsole\StationConsole\obj\x86\Debug\StationConsole.pdb
+M:\Hosted Projects\ascomp1-programming\StationConsole\StationConsole\bin\Debug\StationConsole.exe
+M:\Hosted Projects\ascomp1-programming\StationConsole\StationConsole\bin\Debug\StationConsole.pdb
+M:\Hosted Projects\ascomp1-programming\StationConsole\StationConsole\bin\Debug\StationConsole.xml
+M:\Hosted Projects\ascomp1-programming\StationConsole\StationConsole\obj\x86\Debug\ResolveAssemblyReference.cache
+M:\Hosted Projects\ascomp1-programming\StationConsole\StationConsole\obj\x86\Debug\StationConsole.Form1.resources
+M:\Hosted Projects\ascomp1-programming\StationConsole\StationConsole\obj\x86\Debug\StationConsole.Resources.resources
+M:\Hosted Projects\ascomp1-programming\StationConsole\StationConsole\obj\x86\Debug\StationConsole.PriceSetterDlg.resources
+M:\Hosted Projects\ascomp1-programming\StationConsole\StationConsole\obj\x86\Debug\StationConsole.PumpForm.resources
+M:\Hosted Projects\ascomp1-programming\StationConsole\StationConsole\obj\x86\Debug\GenerateResource.read.1.tlog
+M:\Hosted Projects\ascomp1-programming\StationConsole\StationConsole\obj\x86\Debug\GenerateResource.write.1.tlog

@@ -31,6 +31,7 @@ Public Class Form1
             listener_thread.Join(1000)
             If listener_thread.IsAlive Then
                 listener_thread.Abort()
+                textview_Messages.Text += vbNewLine + "GUI: Server was forcefully stopped. Reason: took too long to stop."
             End If
 
             tb_ServerStartStop.Image = My.Resources.glyphicons_173_play
@@ -45,8 +46,20 @@ Public Class Form1
         End If
     End Sub
 
+    Private Sub ToolStripButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton1.Click
+        Dim dlg As New PriceSetterDlg
+        dlg.FuelPrice = uivar_price
+        If dlg.ShowDialog(Me) = Windows.Forms.DialogResult.OK Then
+            uivar_price = dlg.FuelPrice
+        End If
+    End Sub
+
     Private Sub Form1_FormClosing(ByVal sender As System.Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles MyBase.FormClosing
-        ' TODO: Close all running threads on exit
+        listener_controller.IsThreadRunning = False
+        listener_thread.Join(1000)
+        If listener_thread.IsAlive Then
+            listener_thread.Abort()
+        End If
     End Sub
 
     ''' <summary>
@@ -193,6 +206,43 @@ Public Class AmericanController
     End Property
 
 
+    Private fprice As Decimal
+    Public Property FuelPrice() As Decimal
+        Get
+            Return fprice
+        End Get
+        Set(ByVal value As Decimal)
+            fprice = value
+            RaiseEvent FuelPriceChanged(value)
+        End Set
+    End Property
+
+
+    Private flitres As Decimal
+    Public Property FuelLitresPumped() As Decimal
+        Get
+            Return flitres
+        End Get
+        Set(ByVal value As Decimal)
+            flitres = value
+            RaiseEvent LitresPumpedChanged(value)
+        End Set
+    End Property
+
+
+    Private fsale As Decimal
+    Public Property FuelTotalSale() As Decimal
+        Get
+            Return fsale
+        End Get
+        Set(ByVal value As Decimal)
+            fsale = value
+            RaiseEvent TotalSaleChanged(value)
+        End Set
+    End Property
+
+
+
     Sub New(ByVal name As String, ByRef sock As Socket, ByRef win As Form, ByRef msg_log As Control)
         thread_name = name
         connector = sock
@@ -201,4 +251,10 @@ Public Class AmericanController
         thread_running = True
     End Sub
 
+    Public Event FuelPriceChanged(ByVal new_price As Decimal)
+    Public Event TotalSaleChanged(ByVal new_ts As Decimal)
+    Public Event LitresPumpedChanged(ByVal new_lp As Decimal)
+    Public Event PumpStarted()
+    Public Event PumpStopped() ' Will log transaction
+    Public Event PumpReset()
 End Class

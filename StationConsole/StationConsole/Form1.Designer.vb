@@ -26,10 +26,10 @@ Partial Class Form1
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.ten_HostnameDisplay = New System.Windows.Forms.ToolStripTextBox()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
-        Me.textview_Messages = New System.Windows.Forms.RichTextBox()
         Me.tb_ServerStartStop = New System.Windows.Forms.ToolStripButton()
         Me.tb_ShowLogWindow = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
+        Me.textview_Messages = New System.Windows.Forms.RichTextBox()
         Me.ToolStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -59,17 +59,6 @@ Partial Class Form1
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
         Me.ToolStripSeparator1.Size = New System.Drawing.Size(6, 25)
         '
-        'textview_Messages
-        '
-        Me.textview_Messages.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.textview_Messages.Location = New System.Drawing.Point(0, 384)
-        Me.textview_Messages.Name = "textview_Messages"
-        Me.textview_Messages.ReadOnly = True
-        Me.textview_Messages.Size = New System.Drawing.Size(613, 137)
-        Me.textview_Messages.TabIndex = 2
-        Me.textview_Messages.Text = ""
-        Me.textview_Messages.Visible = False
-        '
         'tb_ServerStartStop
         '
         Me.tb_ServerStartStop.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
@@ -97,6 +86,17 @@ Partial Class Form1
         Me.ToolStripButton1.Name = "ToolStripButton1"
         Me.ToolStripButton1.Size = New System.Drawing.Size(23, 22)
         Me.ToolStripButton1.Text = "Set price..."
+        '
+        'textview_Messages
+        '
+        Me.textview_Messages.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.textview_Messages.Location = New System.Drawing.Point(0, 384)
+        Me.textview_Messages.Name = "textview_Messages"
+        Me.textview_Messages.ReadOnly = True
+        Me.textview_Messages.Size = New System.Drawing.Size(613, 137)
+        Me.textview_Messages.TabIndex = 2
+        Me.textview_Messages.Text = ""
+        Me.textview_Messages.Visible = False
         '
         'Form1
         '
