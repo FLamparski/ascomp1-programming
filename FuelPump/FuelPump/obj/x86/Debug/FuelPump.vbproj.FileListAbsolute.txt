@@ -1,0 +1,11 @@
+\\VBOXSVR\Public\FuelPump\FuelPump\bin\Debug\FuelPump.exe
+\\VBOXSVR\Public\FuelPump\FuelPump\bin\Debug\FuelPump.pdb
+\\VBOXSVR\Public\FuelPump\FuelPump\bin\Debug\FuelPump.xml
+\\VBOXSVR\Public\FuelPump\FuelPump\obj\x86\Debug\FuelPump.Form1.resources
+\\VBOXSVR\Public\FuelPump\FuelPump\obj\x86\Debug\FuelPump.Resources.resources
+\\VBOXSVR\Public\FuelPump\FuelPump\obj\x86\Debug\FuelPump.SevenSegDigit.resources
+\\VBOXSVR\Public\FuelPump\FuelPump\obj\x86\Debug\FuelPump.vbproj.GenerateResource.Cache
+\\VBOXSVR\Public\FuelPump\FuelPump\obj\x86\Debug\FuelPump.exe
+\\VBOXSVR\Public\FuelPump\FuelPump\obj\x86\Debug\FuelPump.xml
+\\VBOXSVR\Public\FuelPump\FuelPump\obj\x86\Debug\FuelPump.pdb
+\\VBOXSVR\Public\FuelPump\FuelPump\bin\Debug\FuelPump.exe.config

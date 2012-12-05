@@ -1,0 +1,150 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+FuelPump
+</name>
+</assembly>
+<members>
+<member name="M:FuelPump.SevenSegDigit.ResetDisplay">
+	<summary>
+ Hide ALL the segments
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FuelPump.SevenSegDigit.SetDigit(System.Int32)">
+	<summary>
+ Sets the 7-seg display to digit
+ </summary>
+	<param name="digit">A single digit to be displayed</param>
+	<remarks></remarks>
+</member><member name="M:FuelPump.SevenSegDigit.ToString">
+	<summary>
+ Returns a string representation of the digit displayed
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FuelPump.SocketCommunicator.FlagError">
+	<summary>
+ An obtuse way of letting the parent thread know that there's an error. Gets reset on read.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks>Gets reset on read.</remarks>
+</member><member name="P:FuelPump.SocketCommunicator.ErrorValue">
+	<summary>
+ An obtuse way of sending an error message to the parent thread. Gets reset on read.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks>Gets reset on read.</remarks>
+</member><member name="P:FuelPump.SocketCommunicator.FlagPriceCheck">
+	<summary>
+ An obtuse way of letting the parent thread know the price is set.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FuelPump.SocketCommunicator.PriceCheckValue">
+	<summary>
+ An obtuse way of sending the price to the parent thread.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FuelPump.SocketCommunicator.FlagSocketOpen">
+	<summary>
+ An obtuse way of letting the parent know the socket is open.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FuelPump.SocketCommunicator.ServerGoodbyeData">
+	<summary>
+ An obtuse way of sending server goodbye data to the parent thread.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FuelPump.SocketCommunicator.#ctor">
+	<summary>
+ Creates a new interface to communicate with the pump console.
+ </summary>
+	<remarks></remarks>
+</member><member name="P:FuelPump.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:FuelPump.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="P:FuelPump.My.Resources.Resources.stock_connect">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="T:FuelPump.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="P:FuelPump.Form1.FuelPrice">
+	<summary>
+ Sets the fuel price, both on the display and internally, or gets the fuel price.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FuelPump.Form1.Litres">
+	<summary>
+ Sets the amounts of litres pumped both on the display and internally, or gets that amount.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FuelPump.Form1.TotalPrice">
+	<summary>
+ Sets the total price, both on the display and internally, or gets the total price.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:FuelPump.SevenSegManager.#ctor(FuelPump.SevenSegDigit@)">
+	<summary>
+ Initializes the SevenSegManager and adds one digit.
+ </summary>
+	<param name="digit1"></param>
+	<remarks></remarks>
+</member><member name="M:FuelPump.SevenSegManager.#ctor">
+	<summary>
+ Initializes the SevenSegManager
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FuelPump.SevenSegManager.AddDigit(FuelPump.SevenSegDigit@)">
+	<summary>
+ Adds a SevenSegDigit to this SevenSegManager
+ </summary>
+	<param name="digit1"></param>
+	<remarks></remarks>
+</member><member name="M:FuelPump.SevenSegManager.SetNumber(System.Int32)">
+	<summary>
+ Iterates through its internal list of SevenSegDigits and sets the number.
+ </summary>
+	<param name="number">Number to be set on SevenSegDigits.</param>
+	<remarks>Throws an exception if there is too many digits.
+ Sets leading zeros.</remarks>
+</member><member name="M:FuelPump.SevenSegManager.SetNumber(System.String)">
+	<summary>
+ Iterates through its internal list of SevenSegDigits and sets the number.
+ </summary>
+	<param name="number">String representing a number to be displayed. Leading zeros please.</param>
+	<remarks></remarks>
+</member><member name="P:FuelPump.SevenSegManager.DigitsCount">
+	<summary>
+ Retrieves the number of SevenSegDigits stored.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member>
+</members>
+</doc>

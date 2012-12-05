@@ -1,0 +1,24 @@
+C:\Users\wielf001.209\AppData\Local\Temporary Projects\7Seg Two Digits\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\wielf001.209\AppData\Local\Temporary Projects\7Seg Two Digits\obj\x86\Debug\_7Seg_Two_Digits.Form1.resources
+C:\Users\wielf001.209\AppData\Local\Temporary Projects\7Seg Two Digits\obj\x86\Debug\_7Seg_Two_Digits.Resources.resources
+C:\Users\wielf001.209\AppData\Local\Temporary Projects\7Seg Two Digits\obj\x86\Debug\_7Seg_Two_Digits.SevenSegDigit.resources
+C:\Users\wielf001.209\AppData\Local\Temporary Projects\7Seg Two Digits\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\wielf001.209\AppData\Local\Temporary Projects\7Seg Two Digits\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\wielf001.209\AppData\Local\Temporary Projects\7Seg Two Digits\bin\Debug\7Seg Two Digits.exe
+C:\Users\wielf001.209\AppData\Local\Temporary Projects\7Seg Two Digits\bin\Debug\7Seg Two Digits.pdb
+C:\Users\wielf001.209\AppData\Local\Temporary Projects\7Seg Two Digits\bin\Debug\7Seg Two Digits.xml
+C:\Users\wielf001.209\AppData\Local\Temporary Projects\7Seg Two Digits\obj\x86\Debug\7Seg Two Digits.exe
+C:\Users\wielf001.209\AppData\Local\Temporary Projects\7Seg Two Digits\obj\x86\Debug\7Seg Two Digits.xml
+C:\Users\wielf001.209\AppData\Local\Temporary Projects\7Seg Two Digits\obj\x86\Debug\7Seg Two Digits.pdb
+D:\7Seg Two Digits\7Seg Two Digits\obj\x86\Debug\7Seg Two Digits.exe
+D:\7Seg Two Digits\7Seg Two Digits\obj\x86\Debug\7Seg Two Digits.xml
+D:\7Seg Two Digits\7Seg Two Digits\obj\x86\Debug\7Seg Two Digits.pdb
+D:\7Seg Two Digits\7Seg Two Digits\bin\Debug\7Seg Two Digits.exe
+D:\7Seg Two Digits\7Seg Two Digits\bin\Debug\7Seg Two Digits.pdb
+D:\7Seg Two Digits\7Seg Two Digits\bin\Debug\7Seg Two Digits.xml
+D:\7Seg Two Digits\7Seg Two Digits\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\7Seg Two Digits\7Seg Two Digits\obj\x86\Debug\_7Seg_Two_Digits.Form1.resources
+D:\7Seg Two Digits\7Seg Two Digits\obj\x86\Debug\_7Seg_Two_Digits.Resources.resources
+D:\7Seg Two Digits\7Seg Two Digits\obj\x86\Debug\_7Seg_Two_Digits.SevenSegDigit.resources
+D:\7Seg Two Digits\7Seg Two Digits\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\7Seg Two Digits\7Seg Two Digits\obj\x86\Debug\GenerateResource.write.1.tlog
