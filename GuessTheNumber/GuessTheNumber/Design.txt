@@ -1,0 +1,42 @@
+﻿Algorithm:
+
+Declare variable: runLoop (Boolean)
+Display a message to welcome the user
+Start main loop -- runs if runLoop is True:
+	Declare variable: result (GameState)
+	Call function Game:
+		Declare variables: number (Integer), counter (Integer), runLoop (Boolean)[Local]
+		Generate a random number between 1 and 10 and store it in number
+		Set counter to 1
+		Start game loop -- runs if runLoop[Local] is True:
+			Declare variable input (String)
+			Ask user for a guess or "quit" mentioning counter, store it in input
+			If input is equal to "quit", set runLoop[Local] to False
+			Declare variable inNumber (Integer)
+			Try converting input to an Integer
+				Success:
+					Store the result in inNumber
+					If inNumber is equal to number, the game is won. Inform the user. Function Game returns GameState.WIN, loop quits.
+					If inNumber is less than number, increment the counter and inform the user.
+					In inNumber is more than number, increment the counter and inform the user.
+				Failure:
+					Inform the user of the error
+		Return GameState.QUIT, since this code path is only reachable if the user enters "quit".
+	Store the value returned by Game() in result.
+	If result is GameState.WIN:
+		Ask the user if they want to play again
+			If not, set runLoop to False
+	If result is GameState.QUIT:
+		Set runLoop to False
+Since runLoop has quit, say goodbye.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Testing procedure:
+Played two games normally.
+Entered non-numbers several times
+Exited the program both by refusing to play again and by typing "quit".
+
+Weaknesses/Scope for improvement:
+This is a console application, which are not used widely any more. Could make it into a Windows Forms application, but that would
+change the algorithm.

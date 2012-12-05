@@ -1,0 +1,8 @@
+\\VBOXSVR\Public\LotteryNumbers\LotteryNumbers\bin\Debug\LotteryNumbers.exe
+\\VBOXSVR\Public\LotteryNumbers\LotteryNumbers\bin\Debug\LotteryNumbers.pdb
+\\VBOXSVR\Public\LotteryNumbers\LotteryNumbers\bin\Debug\LotteryNumbers.xml
+\\VBOXSVR\Public\LotteryNumbers\LotteryNumbers\obj\x86\Debug\LotteryNumbers.Resources.resources
+\\VBOXSVR\Public\LotteryNumbers\LotteryNumbers\obj\x86\Debug\LotteryNumbers.vbproj.GenerateResource.Cache
+\\VBOXSVR\Public\LotteryNumbers\LotteryNumbers\obj\x86\Debug\LotteryNumbers.exe
+\\VBOXSVR\Public\LotteryNumbers\LotteryNumbers\obj\x86\Debug\LotteryNumbers.xml
+\\VBOXSVR\Public\LotteryNumbers\LotteryNumbers\obj\x86\Debug\LotteryNumbers.pdb

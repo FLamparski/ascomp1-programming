@@ -1,0 +1,16 @@
+﻿To create a program which converts Celsius to Fahrenheit, I will need the following variables:
+tempC, of type Integer, to store the Celsius value
+tempF, of type Integer, to store the Fahrenheit value
+
+F = 9C / 5 + 32
+C = (F-32) * 5/9
+
+Despite the fact that I'm using integers, I am using normal division and Math.Round() because
+it produces desired results.
+
+The program will also warn the user whenever they attempt to convert text to a number.
+
+Suggestions:
+* Have the program use decimals to increase precision
+* Make it available on mobile phones
+* Display a thermometer scale with the temperatures

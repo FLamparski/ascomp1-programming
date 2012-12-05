@@ -1,0 +1,9 @@
+\\VBOXSVR\Public\EnigmaMachine\EnigmaMachine\bin\Debug\EnigmaMachine.exe
+\\VBOXSVR\Public\EnigmaMachine\EnigmaMachine\bin\Debug\EnigmaMachine.pdb
+\\VBOXSVR\Public\EnigmaMachine\EnigmaMachine\bin\Debug\EnigmaMachine.xml
+\\VBOXSVR\Public\EnigmaMachine\EnigmaMachine\obj\x86\Debug\EnigmaMachine.Form1.resources
+\\VBOXSVR\Public\EnigmaMachine\EnigmaMachine\obj\x86\Debug\EnigmaMachine.Resources.resources
+\\VBOXSVR\Public\EnigmaMachine\EnigmaMachine\obj\x86\Debug\EnigmaMachine.vbproj.GenerateResource.Cache
+\\VBOXSVR\Public\EnigmaMachine\EnigmaMachine\obj\x86\Debug\EnigmaMachine.exe
+\\VBOXSVR\Public\EnigmaMachine\EnigmaMachine\obj\x86\Debug\EnigmaMachine.xml
+\\VBOXSVR\Public\EnigmaMachine\EnigmaMachine\obj\x86\Debug\EnigmaMachine.pdb

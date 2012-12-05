@@ -1,0 +1,8 @@
+\\VBOXSVR\Public\GuessTheNumber\GuessTheNumber\bin\Debug\GuessTheNumber.exe
+\\VBOXSVR\Public\GuessTheNumber\GuessTheNumber\bin\Debug\GuessTheNumber.pdb
+\\VBOXSVR\Public\GuessTheNumber\GuessTheNumber\bin\Debug\GuessTheNumber.xml
+\\VBOXSVR\Public\GuessTheNumber\GuessTheNumber\obj\x86\Debug\GuessTheNumber.Resources.resources
+\\VBOXSVR\Public\GuessTheNumber\GuessTheNumber\obj\x86\Debug\GuessTheNumber.vbproj.GenerateResource.Cache
+\\VBOXSVR\Public\GuessTheNumber\GuessTheNumber\obj\x86\Debug\GuessTheNumber.exe
+\\VBOXSVR\Public\GuessTheNumber\GuessTheNumber\obj\x86\Debug\GuessTheNumber.xml
+\\VBOXSVR\Public\GuessTheNumber\GuessTheNumber\obj\x86\Debug\GuessTheNumber.pdb

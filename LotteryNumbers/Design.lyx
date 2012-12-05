@@ -1,0 +1,286 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 10
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1cm
+\topmargin 1cm
+\rightmargin 1cm
+\bottommargin 1cm
+\headsep 0.25cm
+\footskip 0.25cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+LotteryNumbers
+\end_layout
+
+\begin_layout Author
+Filip Wieland
+\end_layout
+
+\begin_layout Section
+Purpose
+\end_layout
+
+\begin_layout Standard
+The purpose of ths application is to aid the process of betting on lottery
+ numbers.
+ It has to generate six random numbers in range from 1 to 49 inclusive which
+ must not repeat.
+\end_layout
+
+\begin_layout Section
+Method
+\end_layout
+
+\begin_layout Standard
+My method is to use an 
+\noun on
+ArrayList
+\noun default
+ to store numbers from 1 to 49, then six times get a number at a random
+ index and delete the number at that index to fully simulate the lottery
+ behaviour.
+\end_layout
+
+\begin_layout Section
+Program description
+\end_layout
+
+\begin_layout Subsection
+Module Module1
+\end_layout
+
+\begin_layout Standard
+This area contains global variables.
+\end_layout
+
+\begin_layout Description
+ballNumbers An 
+\noun on
+ArrayList
+\noun default
+ of numbers 1 to 49.
+\end_layout
+
+\begin_layout Subsection
+Main()
+\end_layout
+
+\begin_layout Standard
+The program entry point will contain the main loop which will prompt the
+ user to either generate a new set of random numbers or to exit the application.
+\end_layout
+
+\begin_layout Enumerate
+Declare variable runloop of type Boolean, set it to True.
+\end_layout
+
+\begin_layout Enumerate
+Repeat until runloop is False:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Call subroutine GenerateSixNumbers() → Generates the random numbers and
+ prints them.
+\end_layout
+
+\begin_layout Enumerate
+Ask the user for action (key press):
+\end_layout
+
+\begin_layout Enumerate
+If the key pressed is N:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Continue loop
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+If the key pressed is Q:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Set runloop to False so that the loop would stop.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+If the key pressed is unrecognised:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Inform the user of this fact.
+\end_layout
+
+\begin_layout Enumerate
+Do not generate new random numbers on next iteration.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Enumerate
+Say 
+\begin_inset Quotes eld
+\end_inset
+
+Goodbye
+\begin_inset Quotes erd
+\end_inset
+
+; exit program.
+\end_layout
+
+\begin_layout Subsection
+GenerateSixNumbers()
+\end_layout
+
+\begin_layout Standard
+This subroutine will repopulate the BallNumbers ArrayList, then, for six
+ times, it will take a number at a random index and remove it from ballNumbers.
+ It will then add it to an array of random numbers and call PrintFormatted()
+ with that array in order to print the numbers to console.
+\end_layout
+
+\begin_layout Enumerate
+Reinitialise ballNumbers
+\end_layout
+
+\begin_layout Enumerate
+Populate ballNumbers with numbers 1 to 49
+\end_layout
+
+\begin_layout Enumerate
+Declare a variable lottery_numbers which is an array of six integers.
+\end_layout
+
+\begin_layout Enumerate
+Repeat six times:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Get a random number between 0 and (Max index of BallNumbers) and store it
+ into variable idx
+\end_layout
+
+\begin_layout Enumerate
+Get a number from ballNumbers at index idx and store it into variable num
+\end_layout
+
+\begin_layout Enumerate
+Remove the value at index idx from ballNumbers
+\end_layout
+
+\begin_layout Enumerate
+Append num into array lottery_numbers.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Call subroutine PrintFormatted(with argument lottery_numbers) → Prints the
+ generated numbers nicely.
+\end_layout
+
+\begin_layout Subsection
+PrintFormatted( an array of integers )
+\end_layout
+
+\begin_layout Standard
+This subroutine accepts an array of integers called (variable called numbers)
+ and prints them to the console separated by tabs.
+\end_layout
+
+\begin_layout Enumerate
+Declare variable printnum of type String
+\end_layout
+
+\begin_layout Enumerate
+Repeat for each element in numbers:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Convert the element to string, append a tab to said string, and append all
+ that to printnum.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Print printnum to console.
+\end_layout
+
+\begin_layout Section
+Operation
+\end_layout
+
+\begin_layout Standard
+After you run the program, six numbers will be generated, and you will be
+ able to either generate new six or quit the program.
+ After each generation you will be presented this choice.
+\end_layout
+
+\end_body
+\end_document

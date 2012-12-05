@@ -1,0 +1,8 @@
+\\VBOXSVR\Public\OptimusPrime\OptimusPrime\bin\Debug\OptimusPrime.exe
+\\VBOXSVR\Public\OptimusPrime\OptimusPrime\bin\Debug\OptimusPrime.pdb
+\\VBOXSVR\Public\OptimusPrime\OptimusPrime\bin\Debug\OptimusPrime.xml
+\\VBOXSVR\Public\OptimusPrime\OptimusPrime\obj\x86\Debug\OptimusPrime.Resources.resources
+\\VBOXSVR\Public\OptimusPrime\OptimusPrime\obj\x86\Debug\OptimusPrime.vbproj.GenerateResource.Cache
+\\VBOXSVR\Public\OptimusPrime\OptimusPrime\obj\x86\Debug\OptimusPrime.exe
+\\VBOXSVR\Public\OptimusPrime\OptimusPrime\obj\x86\Debug\OptimusPrime.xml
+\\VBOXSVR\Public\OptimusPrime\OptimusPrime\obj\x86\Debug\OptimusPrime.pdb

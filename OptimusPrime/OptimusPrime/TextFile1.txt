@@ -1,0 +1,20 @@
+﻿My program works like this:
+
+Declare variables: innum of type String, num of type Unsigned Integer, prime of type Boolean and quit of type Boolean.
+Enter main loop (run when quit is false)
+	Ask user for input
+	Read the input into innum
+	Check if innum is "q"
+		If yes, set quit to True and skip checking for prime
+	Try converting innum into an Unsigned Integer and storing it in num
+		If it worked:
+			Check if num is prime (Call CheckPrime with num), and inform the user of the result
+		If it didn't:
+			Inform the user that their input is invalid
+
+CheckPrime is called with argument num:
+	Declare variable i of type Integer and set it to 2
+	Repeat until i equals num:
+		If num is divisible by i and i is not equal to num, return False
+		Increase i by 1
+	Otherwise, return true
