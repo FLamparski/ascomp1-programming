@@ -9,3 +9,16 @@
 \\VBOXSVR\Public\FuelPump\FuelPump\obj\x86\Debug\FuelPump.xml
 \\VBOXSVR\Public\FuelPump\FuelPump\obj\x86\Debug\FuelPump.pdb
 \\VBOXSVR\Public\FuelPump\FuelPump\bin\Debug\FuelPump.exe.config
+M:\Hosted Projects\ascomp1-programming\FuelPump\FuelPump\bin\Debug\FuelPump.exe.config
+M:\Hosted Projects\ascomp1-programming\FuelPump\FuelPump\obj\x86\Debug\FuelPump.exe
+M:\Hosted Projects\ascomp1-programming\FuelPump\FuelPump\obj\x86\Debug\FuelPump.xml
+M:\Hosted Projects\ascomp1-programming\FuelPump\FuelPump\obj\x86\Debug\FuelPump.pdb
+M:\Hosted Projects\ascomp1-programming\FuelPump\FuelPump\bin\Debug\FuelPump.exe
+M:\Hosted Projects\ascomp1-programming\FuelPump\FuelPump\bin\Debug\FuelPump.pdb
+M:\Hosted Projects\ascomp1-programming\FuelPump\FuelPump\bin\Debug\FuelPump.xml
+M:\Hosted Projects\ascomp1-programming\FuelPump\FuelPump\obj\x86\Debug\ResolveAssemblyReference.cache
+M:\Hosted Projects\ascomp1-programming\FuelPump\FuelPump\obj\x86\Debug\FuelPump.Form1.resources
+M:\Hosted Projects\ascomp1-programming\FuelPump\FuelPump\obj\x86\Debug\FuelPump.Resources.resources
+M:\Hosted Projects\ascomp1-programming\FuelPump\FuelPump\obj\x86\Debug\FuelPump.SevenSegDigit.resources
+M:\Hosted Projects\ascomp1-programming\FuelPump\FuelPump\obj\x86\Debug\GenerateResource.read.1.tlog
+M:\Hosted Projects\ascomp1-programming\FuelPump\FuelPump\obj\x86\Debug\GenerateResource.write.1.tlog

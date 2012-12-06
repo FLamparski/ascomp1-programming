@@ -210,12 +210,20 @@ Public Class Form1
                 connected = True
                 SetStatusLabel("Connected.") ' Success!
                 While connected ' So while we're connected...
+                    sockcomm.PollServer()
+                    If sockcomm.FlagPriceCheck Then
+                        FuelPrice = sockcomm.PriceCheckValue ' Allow for price updates while connected
+                    End If
+                    If sockcomm.FlagReset Then
+                        TotalPrice = 0
+                        Litres = 0
+                    End If
                     Dim realpumping = False
                     While pump_is_pumping ' And pumping...
                         sockcomm.StartPumping() ' Inform the server we're pumping
                         realpumping = True
                         While realpumping ' Simulates pumping
-                            sockcomm.SendUnit()
+                            sockcomm.PumpUnit(Litres, TotalPrice, FuelPrice)
                             Litres += My.Settings.LITRES_PER_SECOND
                             TotalPrice = Litres * FuelPrice
                             Thread.Sleep(Integer.Parse(My.Settings.LITRES_PER_SECOND * 1000))

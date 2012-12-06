@@ -23,6 +23,50 @@ FuelPump
  </summary>
 	<returns></returns>
 	<remarks></remarks>
+</member><member name="M:FuelPump.SevenSegManager.#ctor(FuelPump.SevenSegDigit@)">
+	<summary>
+ Initializes the SevenSegManager and adds one digit.
+ </summary>
+	<param name="digit1"></param>
+	<remarks></remarks>
+</member><member name="M:FuelPump.SevenSegManager.#ctor">
+	<summary>
+ Initializes the SevenSegManager
+ </summary>
+	<remarks></remarks>
+</member><member name="M:FuelPump.SevenSegManager.AddDigit(FuelPump.SevenSegDigit@)">
+	<summary>
+ Adds a SevenSegDigit to this SevenSegManager
+ </summary>
+	<param name="digit1"></param>
+	<remarks></remarks>
+</member><member name="M:FuelPump.SevenSegManager.SetNumber(System.Int32)">
+	<summary>
+ Iterates through its internal list of SevenSegDigits and sets the number.
+ </summary>
+	<param name="number">Number to be set on SevenSegDigits.</param>
+	<remarks>Throws an exception if there is too many digits.
+ Sets leading zeros.</remarks>
+</member><member name="M:FuelPump.SevenSegManager.SetNumber(System.String)">
+	<summary>
+ Iterates through its internal list of SevenSegDigits and sets the number.
+ </summary>
+	<param name="number">String representing a number to be displayed. Leading zeros please.</param>
+	<remarks></remarks>
+</member><member name="P:FuelPump.SevenSegManager.DigitsCount">
+	<summary>
+ Retrieves the number of SevenSegDigits stored.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:FuelPump.SocketCommunicator.FlagReset">
+	<summary>
+ An obtuse way of telling the parent thread that a reset should happen.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
 </member><member name="P:FuelPump.SocketCommunicator.FlagError">
 	<summary>
  An obtuse way of letting the parent thread know that there's an error. Gets reset on read.
@@ -70,23 +114,25 @@ FuelPump
  Creates a new interface to communicate with the pump console.
  </summary>
 	<remarks></remarks>
-</member><member name="P:FuelPump.My.Resources.Resources.ResourceManager">
+</member><member name="M:FuelPump.SocketCommunicator.Connect(System.String)">
 	<summary>
-  Returns the cached ResourceManager instance used by this class.
-</summary>
-</member><member name="P:FuelPump.My.Resources.Resources.Culture">
+ Connects to the host
+ </summary>
+	<param name="host">Address or hostname for connection</param>
+	<remarks></remarks>
+</member><member name="M:FuelPump.SocketCommunicator.PollServer">
 	<summary>
-  Overrides the current thread's CurrentUICulture property for all
-  resource lookups using this strongly typed resource class.
-</summary>
-</member><member name="P:FuelPump.My.Resources.Resources.stock_connect">
+ Gets a new message from the server and process it.
+ </summary>
+	<remarks>NO error checking; bad messages are simply ignored.</remarks>
+</member><member name="M:FuelPump.SocketCommunicator.PumpUnit(System.Decimal,System.Decimal,System.Decimal)">
 	<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="T:FuelPump.My.Resources.Resources">
-	<summary>
-  A strongly-typed resource class, for looking up localized strings, etc.
-</summary>
+ Update the server with what the user has pumped
+ </summary>
+	<param name="total_pumped">Litres pumped</param>
+	<param name="total_sale">Sale, computed by the pump</param>
+	<param name="price">Price at which the pump is pumping (may differ as price is not updated while pumping)</param>
+	<remarks></remarks>
 </member><member name="P:FuelPump.Form1.FuelPrice">
 	<summary>
  Sets the fuel price, both on the display and internally, or gets the fuel price.
@@ -108,43 +154,47 @@ FuelPump
 	<value></value>
 	<returns></returns>
 	<remarks></remarks>
-</member><member name="M:FuelPump.SevenSegManager.#ctor(FuelPump.SevenSegDigit@)">
+</member><member name="T:FuelPump.Form1.SetStatusLabelCallback">
 	<summary>
- Initializes the SevenSegManager and adds one digit.
+ Callback for the thread-safe status label set method
  </summary>
-	<param name="digit1"></param>
+	<param name="text"></param>
 	<remarks></remarks>
-</member><member name="M:FuelPump.SevenSegManager.#ctor">
+</member><member name="T:FuelPump.Form1.ConnectionLoopErrorCallback">
 	<summary>
- Initializes the SevenSegManager
+ Callback for the thread-safe message box
  </summary>
+	<param name="message"></param>
 	<remarks></remarks>
-</member><member name="M:FuelPump.SevenSegManager.AddDigit(FuelPump.SevenSegDigit@)">
+</member><member name="M:FuelPump.Form1.connectionloop_Error(System.String)">
 	<summary>
- Adds a SevenSegDigit to this SevenSegManager
+ A thread-safe way of telling the user there's been an error.
  </summary>
-	<param name="digit1"></param>
+	<param name="message"></param>
 	<remarks></remarks>
-</member><member name="M:FuelPump.SevenSegManager.SetNumber(System.Int32)">
+</member><member name="M:FuelPump.Form1.SetStatusLabel(System.String)">
 	<summary>
- Iterates through its internal list of SevenSegDigits and sets the number.
+ A thread-safe way of setting the status label from the worker thread.
  </summary>
-	<param name="number">Number to be set on SevenSegDigits.</param>
-	<remarks>Throws an exception if there is too many digits.
- Sets leading zeros.</remarks>
-</member><member name="M:FuelPump.SevenSegManager.SetNumber(System.String)">
-	<summary>
- Iterates through its internal list of SevenSegDigits and sets the number.
- </summary>
-	<param name="number">String representing a number to be displayed. Leading zeros please.</param>
+	<param name="text"></param>
 	<remarks></remarks>
-</member><member name="P:FuelPump.SevenSegManager.DigitsCount">
+</member><member name="P:FuelPump.My.Resources.Resources.ResourceManager">
 	<summary>
- Retrieves the number of SevenSegDigits stored.
- </summary>
-	<value></value>
-	<returns></returns>
-	<remarks></remarks>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:FuelPump.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="P:FuelPump.My.Resources.Resources.stock_connect">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="T:FuelPump.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
 </member>
 </members>
 </doc>

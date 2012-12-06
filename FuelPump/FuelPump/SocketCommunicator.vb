@@ -1,12 +1,30 @@
 ﻿Imports System.Net.Sockets
 Imports System.Net
 Imports System.IO
+Imports System.Text.RegularExpressions
 
 Public Class SocketCommunicator
     Private msocket As Socket
     Private mstream As Stream
     Private mstreamr As StreamReader
     Private mstreamw As StreamWriter
+
+
+    Private reset_flag As Boolean
+    ''' <summary>
+    ''' An obtuse way of telling the parent thread that a reset should happen.
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public ReadOnly Property FlagReset() As Boolean
+        Get
+            Dim _r_F = reset_flag
+            reset_flag = False
+            Return _r_F
+        End Get
+    End Property
+
 
     Private err_flag As Boolean
     Private err_value As String
@@ -94,6 +112,11 @@ Public Class SocketCommunicator
         msocket = New Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp)
     End Sub
 
+    ''' <summary>
+    ''' Connects to the host
+    ''' </summary>
+    ''' <param name="host">Address or hostname for connection</param>
+    ''' <remarks></remarks>
     Public Sub Connect(ByVal host As String)
         msocket.Connect(host, My.Settings.PORT)
         mstream = New NetworkStream(msocket)
@@ -121,6 +144,27 @@ Public Class SocketCommunicator
         End If
     End Sub
 
+    ''' <summary>
+    ''' Gets a new message from the server and process it.
+    ''' </summary>
+    ''' <remarks>NO error checking; bad messages are simply ignored.</remarks>
+    Public Sub PollServer()
+        Dim message_in As String = mstreamr.ReadLine()
+        Dim pricecheck_regexpattern As String = "^PRICE\t(<price_val>\d\.\d{3})$"
+        If message_in = "RESET" Then
+            reset_flag = True
+        End If
+        Dim pricecheck_regex As New Regex(pricecheck_regexpattern)
+        If pricecheck_regex.IsMatch(message_in) Then
+            Dim newprice As Decimal
+            Dim match = pricecheck_regex.Match(message_in)
+            If Decimal.TryParse(match.Groups("price_val").Value, newprice) Then
+                pricecheck_value = newprice
+                pricecheck_flag = True
+            End If
+        End If
+    End Sub
+
     Public Sub StartPumping()
         mstreamw.WriteLine("CL_STARTPUMP")
     End Sub
@@ -129,8 +173,16 @@ Public Class SocketCommunicator
         mstreamw.WriteLine("CL_STOPPUMP")
     End Sub
 
-    Public Sub SendUnit()
-        mstreamw.WriteLine(My.Settings.UnitChar)
+    ''' <summary>
+    ''' Update the server with what the user has pumped
+    ''' </summary>
+    ''' <param name="total_pumped">Litres pumped</param>
+    ''' <param name="total_sale">Sale, computed by the pump</param>
+    ''' <param name="price">Price at which the pump is pumping (may differ as price is not updated while pumping)</param>
+    ''' <remarks></remarks>
+    Public Sub PumpUnit(ByVal total_pumped As Decimal, ByVal total_sale As Decimal, ByVal price As Decimal)
+        Dim strsend As String = total_pumped.ToString() & vbTab & total_sale.ToString() & vbTab & price.ToString()
+        mstreamw.WriteLine(strsend)
     End Sub
 
     Public Sub Disconnect()

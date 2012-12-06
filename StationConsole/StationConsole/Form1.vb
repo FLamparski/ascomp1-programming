@@ -20,9 +20,11 @@ Public Class Form1
         Me.Text += Dns.GetHostName()
         ten_HostnameDisplay.Text = Dns.GetHostName()
         uivar_server_running = False
-        listener_obj = New TcpListener(15000) 'TODO: Use the new init method
+        listener_obj = New TcpListener(IPAddress.Any, 15000)
         listener_controller = New PutinController("Putin", textview_Messages, listener_obj)
-        listener_thread = New Thread(AddressOf ConnectionDispatcher)
+        'listener_thread = New Thread(AddressOf ConnectionDispatcher)
+        worker_controllers = New Hashtable()
+        worker_threads = New Hashtable()
     End Sub
 
     Private Sub tb_ServerStartStop_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tb_ServerStartStop.Click
@@ -36,13 +38,16 @@ Public Class Form1
 
             tb_ServerStartStop.Image = My.Resources.glyphicons_173_play
             tb_ServerStartStop.Text = "Start server"
+            uivar_server_running = False
         Else
             listener_controller.IsThreadRunning = True
+            listener_thread = New Thread(AddressOf ConnectionDispatcher)
             listener_thread.Start("Putin")
 
 
             tb_ServerStartStop.Image = My.Resources.glyphicons_175_stop
             tb_ServerStartStop.Text = "Stop server"
+            uivar_server_running = True
         End If
     End Sub
 
