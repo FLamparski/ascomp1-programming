@@ -34,3 +34,6 @@ D:\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\WindowsApplication1.F
 D:\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\WindowsApplication1.Resources.resources
 D:\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\GenerateResource.read.1.tlog
 D:\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\GenerateResource.write.1.tlog
+M:\Hosted Projects\ascomp1-programming\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\Convert to Hexadecimal.exe
+M:\Hosted Projects\ascomp1-programming\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\Convert to Hexadecimal.xml
+M:\Hosted Projects\ascomp1-programming\Convert to Hexadecimal\Convert to Hexadecimal\obj\Debug\Convert to Hexadecimal.pdb
