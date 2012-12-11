@@ -95,7 +95,7 @@ Partial Class PumpForm
         '
         'en_IsPumping
         '
-        Me.en_IsPumping.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.en_IsPumping.BackColor = System.Drawing.Color.LightCoral
         Me.en_IsPumping.Location = New System.Drawing.Point(75, 106)
         Me.en_IsPumping.Name = "en_IsPumping"
         Me.en_IsPumping.Size = New System.Drawing.Size(70, 20)

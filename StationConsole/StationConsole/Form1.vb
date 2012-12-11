@@ -2,6 +2,7 @@
 Imports System.Net.Sockets
 Imports System.IO
 Imports System.Threading
+Imports System.Text.RegularExpressions
 
 Public Class Form1
     Dim uivar_server_running As Boolean
@@ -25,24 +26,37 @@ Public Class Form1
         'listener_thread = New Thread(AddressOf ConnectionDispatcher)
         worker_controllers = New Hashtable()
         worker_threads = New Hashtable()
+        textview_Messages.Text = "Welcome to the station console. Current version is 0.1. Ready to work."
     End Sub
 
     Private Sub tb_ServerStartStop_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tb_ServerStartStop.Click
         If uivar_server_running Then
+            textview_Messages.Text += vbNewLine + "GUI: Stopping server..."
             listener_controller.IsThreadRunning = False
             listener_thread.Join(1000)
             If listener_thread.IsAlive Then
                 listener_thread.Abort()
                 textview_Messages.Text += vbNewLine + "GUI: Server was forcefully stopped. Reason: took too long to stop."
+                listener_controller.MyTcpListener.Stop()
+                For Each tc As AmericanController In worker_controllers ' If this takes more than one second, the listener thread will be aborted.
+                    listener_controller.MessageWindow.Invoke(Sub() listener_controller.MessageWindow.Text += vbNewLine + "GUI" + ": Ending sub-thread " & tc.ThreadName)
+                    tc.IsThreadRunning = False
+                    tc.MySocket.Close()
+                    worker_threads(tc.ThreadName).Join(500)
+                    If worker_threads(tc.ThreadName).IsAlive = True Then worker_threads(tc.ThreadName).Abort()
+                Next
             End If
+            textview_Messages.Text += vbNewLine + "GUI: Server stopped."
 
             tb_ServerStartStop.Image = My.Resources.glyphicons_173_play
             tb_ServerStartStop.Text = "Start server"
             uivar_server_running = False
         Else
+            textview_Messages.Text += vbNewLine + "GUI: Starting server..."
             listener_controller.IsThreadRunning = True
             listener_thread = New Thread(AddressOf ConnectionDispatcher)
             listener_thread.Start("Putin")
+            textview_Messages.Text += vbNewLine + "GUI: Server started."
 
 
             tb_ServerStartStop.Image = My.Resources.glyphicons_175_stop
@@ -64,6 +78,15 @@ Public Class Form1
         listener_thread.Join(1000)
         If listener_thread.IsAlive Then
             listener_thread.Abort()
+            textview_Messages.Text += vbNewLine + "GUI: Server was forcefully stopped. Reason: took too long to stop."
+            listener_controller.MyTcpListener.Stop()
+            For Each tc As AmericanController In worker_controllers ' If this takes more than one second, the listener thread will be aborted.
+                listener_controller.MessageWindow.Invoke(Sub() listener_controller.MessageWindow.Text += vbNewLine + "GUI" + ": Ending sub-thread " & tc.ThreadName)
+                tc.IsThreadRunning = False
+                tc.MySocket.Close()
+                worker_threads(tc.ThreadName).Join(500)
+                If worker_threads(tc.ThreadName).IsAlive = True Then worker_threads(tc.ThreadName).Abort()
+            Next
         End If
     End Sub
 
@@ -85,18 +108,77 @@ Public Class Form1
         While listener_controller.IsThreadRunning
             If worker_threads.Count < uivar_thread_names.Length Then
                 Dim accepted_connection As Socket = listener_controller.MyTcpListener.AcceptSocket()
+                listener_controller.MessageWindow.Invoke(Sub() listener_controller.MessageWindow.Text += vbNewLine + name + ": Connection from " & accepted_connection.RemoteEndPoint.ToString() & " accepted. Starting the handler thread...")
                 Dim pumpform As Form = Me.Invoke(Function() Me.GetPumpSubform())
-                Dim controller As New AmericanController(worker_threads.Count, accepted_connection, pumpform, textview_Messages)
-
+                Dim controller As New AmericanController(uivar_thread_names(worker_threads.Count), accepted_connection, pumpform, textview_Messages)
+                Dim server_thread As New Thread(AddressOf ConnectionHandler)
+                worker_threads.Add(uivar_thread_names(worker_threads.Count), server_thread)
+                worker_controllers.Add(uivar_thread_names(worker_threads.Count), controller)
+                server_thread.Start(uivar_thread_names(worker_threads.Count))
+                listener_controller.MessageWindow.Invoke(Sub() listener_controller.MessageWindow.Text += vbNewLine + name + ": Handler thread for " & accepted_connection.RemoteEndPoint.ToString() & " started.")
+            Else
+                listener_controller.MessageWindow.Invoke(Sub(connection) MessageBox.Show("Too many connections. Closing incoming", "Server at capacity", MessageBoxButtons.OK, MessageBoxIcon.Warning))
+                listener_controller.MessageWindow.Invoke(Sub() listener_controller.MessageWindow.Text += vbNewLine + name + ": Server at capacity: incoming connections are refused.")
             End If
         End While
         listener_controller.MessageWindow.Invoke(Sub() listener_controller.MessageWindow.Text += vbNewLine + name + ": Server stopping...")
         listener_controller.MyTcpListener.Stop()
         For Each tc As AmericanController In worker_controllers ' If this takes more than one second, the listener thread will be aborted.
+            listener_controller.MessageWindow.Invoke(Sub() listener_controller.MessageWindow.Text += vbNewLine + name + ": Ending sub-thread " & tc.ThreadName)
             tc.IsThreadRunning = False
             tc.MySocket.Close()
         Next
         listener_controller.MessageWindow.Invoke(Sub() listener_controller.MessageWindow.Text += vbNewLine + name + ": Server stopped.")
+    End Sub
+
+    Private Sub ConnectionHandler(ByVal th_name As String)
+        Dim myController As AmericanController = worker_controllers(th_name)
+        Dim stream As Stream = New NetworkStream(myController.MySocket)
+        Dim streamr As New StreamReader(stream)
+        Dim streamw As New StreamWriter(stream)
+        streamw.AutoFlush = True
+        myController.MessageWindow.Invoke(Sub() myController.MessageWindow.Text += vbNewLine + th_name + ": Connection established with " & myController.MySocket.RemoteEndPoint.ToString())
+        While (myController.IsThreadRunning)
+            Dim inConnectionLoop As Boolean = True
+            Dim pumpingLoop As Boolean = False
+
+            ' Handshake
+            streamw.WriteLine("HELLO")
+            Dim readin As String = streamr.ReadLine()
+            If Not readin = "HOWDY" Then
+                myController.MySocket.Close()
+                myController.MessageWindow.Invoke(Sub() myController.MessageWindow.Text += vbNewLine + th_name + ": Error: Pump at " & myController.MySocket.RemoteEndPoint.ToString() & " failed handshake, expected HOWDY, got " & readin)
+                myController.MessageWindow.Invoke(Sub() myController.MessageWindow.Text += vbNewLine + th_name + ": Closed connection with " & myController.MySocket.RemoteEndPoint.ToString())
+            End If
+
+            ' Send initial price check
+            streamw.WriteLine(uivar_price.ToString())
+
+            While inConnectionLoop
+                readin = streamr.ReadLine()
+                If readin = "?" Then
+                    ' Send updates as we've been polled
+                End If
+
+                If readin = "CL_STARTPUMP" Then
+                    pumpingLoop = True
+                End If
+
+                While pumpingLoop
+                    readin = streamr.ReadLine()
+                    Dim pumpExpression As New Regex("^(<pumped>\d{1,10}\.\d)\t(<sale>\d{1,10}\.\d)\t(<price>\d{1,3}\.\d)$")
+                    If readin = "CL_STOPPUMP" Then
+                        pumpingLoop = False
+                        Continue While
+                    ElseIf pumpExpression.IsMatch(readin) Then
+                        Dim match = pumpExpression.Match(readin)
+                        myController.AssociatedForm.Invoke(Sub() myController.AssociatedForm.SetValues(match.Groups("pumped").Value, match.Groups("sale").Value, match.Groups("price").Value))
+                    Else
+
+                    End If
+                End While
+            End While
+        End While
     End Sub
 End Class
 
@@ -168,12 +250,12 @@ Public Class AmericanController
         End Set
     End Property
 
-    Private window_object As Form
-    Public Property AssociatedForm() As Form
+    Private window_object As PumpForm
+    Public Property AssociatedForm() As PumpForm
         Get
             Return window_object
         End Get
-        Set(ByVal value As Form)
+        Set(ByVal value As PumpForm)
             window_object = value
         End Set
     End Property
@@ -248,7 +330,7 @@ Public Class AmericanController
 
 
 
-    Sub New(ByVal name As String, ByRef sock As Socket, ByRef win As Form, ByRef msg_log As Control)
+    Sub New(ByVal name As String, ByRef sock As Socket, ByRef win As PumpForm, ByRef msg_log As Control)
         thread_name = name
         connector = sock
         window_object = win
