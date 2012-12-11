@@ -149,8 +149,9 @@ Public Class SocketCommunicator
     ''' </summary>
     ''' <remarks>NO error checking; bad messages are simply ignored.</remarks>
     Public Sub PollServer()
+        mstreamw.WriteLine("?")
         Dim message_in As String = mstreamr.ReadLine()
-        Dim pricecheck_regexpattern As String = "^PRICE\t(<price_val>\d\.\d{3})$"
+        Dim pricecheck_regexpattern As String = "^PRICE\t(<price_val>\d{1,3}\.\d)$"
         If message_in = "RESET" Then
             reset_flag = True
         End If
