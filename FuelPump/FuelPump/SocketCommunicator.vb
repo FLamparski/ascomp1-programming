@@ -4,7 +4,7 @@ Imports System.IO
 Imports System.Text.RegularExpressions
 
 Public Class SocketCommunicator
-    Private msocket As Socket
+    Private mclient As TcpClient
     Private mstream As Stream
     Private mstreamr As StreamReader
     Private mstreamw As StreamWriter
@@ -87,7 +87,7 @@ Public Class SocketCommunicator
     ''' <remarks></remarks>
     Public ReadOnly Property FlagSocketOpen As Boolean
         Get
-            Return msocket.Connected
+            Return mclient.Connected
         End Get
     End Property
 
@@ -109,7 +109,7 @@ Public Class SocketCommunicator
     ''' </summary>
     ''' <remarks></remarks>
     Public Sub New()
-        msocket = New Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp)
+        mclient = New TcpClient(AddressFamily.InterNetwork)
     End Sub
 
     ''' <summary>
@@ -118,19 +118,28 @@ Public Class SocketCommunicator
     ''' <param name="host">Address or hostname for connection</param>
     ''' <remarks></remarks>
     Public Sub Connect(ByVal host As String)
-        msocket.Connect(host, My.Settings.PORT)
-        mstream = New NetworkStream(msocket)
+        mclient.Connect(host, My.Settings.PORT)
+        Trace.WriteLine("Connected to host " & host & ".")
+        mstream = mclient.GetStream()
         mstreamr = New StreamReader(mstream)
         mstreamw = New StreamWriter(mstream)
+        Trace.WriteLine("Awaiting message from " & mclient.Client.RemoteEndPoint.ToString() & ".")
         Dim handshakerd = mstreamr.ReadLine()
-        If handshakerd = My.Settings.ServerHello Then
+        Trace.WriteLine(">> From " & mclient.Client.RemoteEndPoint.ToString() & "; Message: " & handshakerd)
+        If handshakerd = My.Settings.ServerHello And mstream.CanWrite Then
             mstreamw.WriteLine(My.Settings.ClientHello)
+            Trace.WriteLine("<< To " & mclient.Client.RemoteEndPoint.ToString() & "; Message: " & My.Settings.ClientHello)
+        ElseIf Not mstream.CanWrite Then
+            err_value = String.Format("Error: Connection stream with {0} doesn't support writing. Disconnecting.", mclient.Client.RemoteEndPoint.ToString())
+            err_flag = True
         Else
             err_value = String.Format("Handshake error. Expected {0}, got {1} instead.", My.Settings.Item("ServerHello"), handshakerd)
             err_flag = True
-            msocket.Close()
+            mclient.Client.Close() ' This is needed to close the socket quickly and not go into Wait Close
+            mclient.Close()
             Return
         End If
+        Trace.WriteLine("Awaiting price from " & mclient.Client.RemoteEndPoint.ToString() & ".")
         Dim pricerd = mstreamr.ReadLine()
         Dim priced As Decimal
         If Decimal.TryParse(pricerd, priced) Then
@@ -139,7 +148,8 @@ Public Class SocketCommunicator
         Else
             err_value = String.Format("Price check error. Could not convert {0} into a decimal value.", pricerd)
             err_flag = True
-            msocket.Close()
+            mclient.Client.Close()
+            mclient.Close()
             Return
         End If
     End Sub
@@ -190,6 +200,6 @@ Public Class SocketCommunicator
         mstreamw.WriteLine("CL_BYE")
         Dim byerd = mstreamr.ReadLine()
         srv_goodbye_data = byerd
-        msocket.Close()
+        mclient.Close()
     End Sub
 End Class
