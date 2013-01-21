@@ -9,3 +9,4 @@ M:\Hosted Projects\ascomp1-programming\TravelClock\TravelClock\obj\x86\Debug\Gen
 M:\Hosted Projects\ascomp1-programming\TravelClock\TravelClock\obj\x86\Debug\TravelClock.exe
 M:\Hosted Projects\ascomp1-programming\TravelClock\TravelClock\obj\x86\Debug\TravelClock.xml
 M:\Hosted Projects\ascomp1-programming\TravelClock\TravelClock\obj\x86\Debug\TravelClock.pdb
+M:\Hosted Projects\ascomp1-programming\TravelClock\TravelClock\obj\x86\Debug\TravelClock.AnalogueClock.resources

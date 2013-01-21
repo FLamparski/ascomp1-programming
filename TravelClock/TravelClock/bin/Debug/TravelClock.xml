@@ -6,7 +6,13 @@ TravelClock
 </name>
 </assembly>
 <members>
-<member name="P:TravelClock.My.Resources.Resources.ResourceManager">
+<member name="M:TravelClock.AnalogueClock.SetTime(System.DateTime@)">
+	<summary>
+ Set the time to be displayed by the clock control. This also redraws the clock.
+ </summary>
+	<param name="dt">A Date object with target time</param>
+	<remarks></remarks>
+</member><member name="P:TravelClock.My.Resources.Resources.ResourceManager">
 	<summary>
   Returns the cached ResourceManager instance used by this class.
 </summary>
