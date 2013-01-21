@@ -185,10 +185,10 @@ Public Class Form1
     Private Sub ConnectionLoop(ByVal to_where As String) ' Very important. Handles the protocol. So important it runs in a separate thread.
         While comm_thread_running ' So, while the thread is running...
             While connect_set ' And user wants to connect...
-                SetStatusLabel("Connecting...")
+                SetStatusLabel("Registering on console...")
                 sockcomm = New SocketCommunicator()
                 Try
-                    sockcomm.Connect(en_ConsoleHost.Text) ' Try to connect to specified host.
+                    sockcomm.Connect(en_ConsoleHost.Text, en_ClientID.Text) ' Try to connect to specified host.
                 Catch ex As Exception
                     connect_set = False
                     connectionloop_Error(ex.Message)
@@ -198,14 +198,6 @@ Public Class Form1
                     connect_set = False
                     connectionloop_Error(sockcomm.ErrorValue)
                     Continue While ' If there are problems on the line, display error message.
-                End If
-                If sockcomm.FlagPriceCheck Then ' Get the price from the server.
-                    FuelPrice = sockcomm.PriceCheckValue
-                Else
-                    connect_set = False
-                    connectionloop_Error("Price check should be here by now.")
-                    sockcomm.Disconnect()
-                    Continue While ' (...)
                 End If
                 connected = True
                 SetStatusLabel("Connected.") ' Success!

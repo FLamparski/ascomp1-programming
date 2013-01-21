@@ -4,10 +4,12 @@ Imports System.IO
 Imports System.Text.RegularExpressions
 
 Public Class SocketCommunicator
-    Private mclient As TcpClient
-    Private mstream As Stream
-    Private mstreamr As StreamReader
-    Private mstreamw As StreamWriter
+    Dim m_tcpClient As TcpClient
+    Dim m_udpClient As UdpClient
+    Dim tcpWriter As StreamWriter
+    Dim tcpReader As StreamReader
+    Dim udpWriter As StreamWriter
+    Dim udpReader As StreamReader
 
 
     Private reset_flag As Boolean
@@ -79,17 +81,6 @@ Public Class SocketCommunicator
             Return pricecheck_value
         End Get
     End Property
-    ''' <summary>
-    ''' An obtuse way of letting the parent know the socket is open.
-    ''' </summary>
-    ''' <value></value>
-    ''' <returns></returns>
-    ''' <remarks></remarks>
-    Public ReadOnly Property FlagSocketOpen As Boolean
-        Get
-            Return mclient.Connected
-        End Get
-    End Property
 
     Private srv_goodbye_data As String
     ''' <summary>
@@ -109,49 +100,36 @@ Public Class SocketCommunicator
     ''' </summary>
     ''' <remarks></remarks>
     Public Sub New()
-        mclient = New TcpClient(AddressFamily.InterNetwork)
+        m_tcpClient = New TcpClient(AddressFamily.InterNetwork)
+        m_udpClient = New UdpClient(AddressFamily.InterNetwork)
     End Sub
 
     ''' <summary>
-    ''' Connects to the host
+    ''' Registers the pump on the console
     ''' </summary>
     ''' <param name="host">Address or hostname for connection</param>
     ''' <remarks></remarks>
-    Public Sub Connect(ByVal host As String)
-        mclient.Connect(host, My.Settings.PORT)
-        Trace.WriteLine("Connected to host " & host & ".")
-        mstream = mclient.GetStream()
-        mstreamr = New StreamReader(mstream)
-        mstreamw = New StreamWriter(mstream)
-        Trace.WriteLine("Awaiting message from " & mclient.Client.RemoteEndPoint.ToString() & ".")
-        Dim handshakerd = mstreamr.ReadLine()
-        Trace.WriteLine(">> From " & mclient.Client.RemoteEndPoint.ToString() & "; Message: " & handshakerd)
-        If handshakerd = My.Settings.ServerHello And mstream.CanWrite Then
-            mstreamw.WriteLine(My.Settings.ClientHello)
-            Trace.WriteLine("<< To " & mclient.Client.RemoteEndPoint.ToString() & "; Message: " & My.Settings.ClientHello)
-        ElseIf Not mstream.CanWrite Then
-            err_value = String.Format("Error: Connection stream with {0} doesn't support writing. Disconnecting.", mclient.Client.RemoteEndPoint.ToString())
-            err_flag = True
-        Else
-            err_value = String.Format("Handshake error. Expected {0}, got {1} instead.", My.Settings.Item("ServerHello"), handshakerd)
-            err_flag = True
-            mclient.Client.Close() ' This is needed to close the socket quickly and not go into Wait Close
-            mclient.Close()
-            Return
-        End If
-        Trace.WriteLine("Awaiting price from " & mclient.Client.RemoteEndPoint.ToString() & ".")
-        Dim pricerd = mstreamr.ReadLine()
-        Dim priced As Decimal
-        If Decimal.TryParse(pricerd, priced) Then
-            pricecheck_flag = True
-            pricecheck_value = priced
-        Else
-            err_value = String.Format("Price check error. Could not convert {0} into a decimal value.", pricerd)
-            err_flag = True
-            mclient.Client.Close()
-            mclient.Close()
-            Return
-        End If
+    Public Sub Connect(ByVal host As String, ByVal pumpid As String)
+        m_tcpClient.Connect(host, 15000)
+        tcpReader = New StreamReader(m_tcpClient.GetStream())
+        tcpWriter = New StreamWriter(m_tcpClient.GetStream())
+
+        tcpWriter.AutoFlush = True
+        tcpWriter.WriteLine("PUMP REGISTER" + vbTab + pumpid)
+
+        Dim ack = False
+        Dim counter = 0
+        While Not ack
+            If tcpReader.ReadLine() = ("REGISTERED" + vbTab + pumpid) Then
+                ack = True
+            Else
+                counter += 1
+            End If
+            If counter = 100 Then
+                m_tcpClient.Close()
+                Throw New TooManyTriesException("Cannot register the pump right now. Is the server busy?")
+            End If
+        End While
     End Sub
 
     ''' <summary>
@@ -159,29 +137,15 @@ Public Class SocketCommunicator
     ''' </summary>
     ''' <remarks>NO error checking; bad messages are simply ignored.</remarks>
     Public Sub PollServer()
-        mstreamw.WriteLine("?")
-        Dim message_in As String = mstreamr.ReadLine()
-        Dim pricecheck_regexpattern As String = "^PRICE\t(<price_val>\d{1,3}\.\d)$"
-        If message_in = "RESET" Then
-            reset_flag = True
-        End If
-        Dim pricecheck_regex As New Regex(pricecheck_regexpattern)
-        If pricecheck_regex.IsMatch(message_in) Then
-            Dim newprice As Decimal
-            Dim match = pricecheck_regex.Match(message_in)
-            If Decimal.TryParse(match.Groups("price_val").Value, newprice) Then
-                pricecheck_value = newprice
-                pricecheck_flag = True
-            End If
-        End If
+        
     End Sub
 
     Public Sub StartPumping()
-        mstreamw.WriteLine("CL_STARTPUMP")
+
     End Sub
 
     Public Sub StopPumping()
-        mstreamw.WriteLine("CL_STOPPUMP")
+
     End Sub
 
     ''' <summary>
@@ -197,9 +161,16 @@ Public Class SocketCommunicator
     End Sub
 
     Public Sub Disconnect()
-        mstreamw.WriteLine("CL_BYE")
-        Dim byerd = mstreamr.ReadLine()
-        srv_goodbye_data = byerd
-        mclient.Close()
+        
+    End Sub
+End Class
+
+Public Class TooManyTriesException
+    Inherits Exception
+    Sub New(ByVal message As String)
+        MyBase.New(message)
+    End Sub
+    Sub New()
+        MyBase.New()
     End Sub
 End Class

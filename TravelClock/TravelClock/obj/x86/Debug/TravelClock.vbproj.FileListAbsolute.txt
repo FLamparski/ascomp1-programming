@@ -1,0 +1,11 @@
+M:\Hosted Projects\ascomp1-programming\TravelClock\TravelClock\bin\Debug\TravelClock.exe
+M:\Hosted Projects\ascomp1-programming\TravelClock\TravelClock\bin\Debug\TravelClock.pdb
+M:\Hosted Projects\ascomp1-programming\TravelClock\TravelClock\bin\Debug\TravelClock.xml
+M:\Hosted Projects\ascomp1-programming\TravelClock\TravelClock\obj\x86\Debug\ResolveAssemblyReference.cache
+M:\Hosted Projects\ascomp1-programming\TravelClock\TravelClock\obj\x86\Debug\TravelClock.Form1.resources
+M:\Hosted Projects\ascomp1-programming\TravelClock\TravelClock\obj\x86\Debug\TravelClock.Resources.resources
+M:\Hosted Projects\ascomp1-programming\TravelClock\TravelClock\obj\x86\Debug\GenerateResource.read.1.tlog
+M:\Hosted Projects\ascomp1-programming\TravelClock\TravelClock\obj\x86\Debug\GenerateResource.write.1.tlog
+M:\Hosted Projects\ascomp1-programming\TravelClock\TravelClock\obj\x86\Debug\TravelClock.exe
+M:\Hosted Projects\ascomp1-programming\TravelClock\TravelClock\obj\x86\Debug\TravelClock.xml
+M:\Hosted Projects\ascomp1-programming\TravelClock\TravelClock\obj\x86\Debug\TravelClock.pdb

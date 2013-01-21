@@ -145,14 +145,17 @@ Public Class Form1
 
                 ' Handshake
                 Trace.WriteLine("<< To " & myController.MySocket.RemoteEndPoint.ToString() & "; Message: HELLO")
-                streamw.WriteLine("HELLO")
+                Dim localipendpoint As IPEndPoint = myController.MySocket.LocalEndPoint
+                streamw.WriteLine("HELLO" + vbTab + localipendpoint.Port.ToString())
                 Trace.WriteLine("Awaiting message from " & myController.MySocket.RemoteEndPoint.ToString() & ".")
                 Dim readin As String = streamr.ReadLine()
                 Trace.WriteLine(">> From " & myController.MySocket.RemoteEndPoint.ToString() & "; Message: " & readin)
                 If Not readin = "HOWDY" Then
-                    myController.MySocket.Close()
                     myController.MessageWindow.Invoke(Sub() myController.MessageWindow.Text += vbNewLine + th_name + ": Error: Pump at " & myController.MySocket.RemoteEndPoint.ToString() & " failed handshake, expected HOWDY, got " & readin)
                     myController.MessageWindow.Invoke(Sub() myController.MessageWindow.Text += vbNewLine + th_name + ": Closed connection with " & myController.MySocket.RemoteEndPoint.ToString())
+                    myController.MySocket.Close()
+                    myController.IsThreadRunning = False
+                    Continue While
                 End If
 
                 ' Send initial price check
@@ -185,7 +188,7 @@ Public Class Form1
             Catch ex As IOException
                 myController.MessageWindow.Invoke(Sub() MessageBox.Show("Error: Client dropped (" & myController.MySocket.RemoteEndPoint.ToString() & "); Exception: " & ex.Message, "Client error", MessageBoxButtons.OK, MessageBoxIcon.Error))
                 myController.MessageWindow.Invoke(Sub() myController.MessageWindow.Text += vbNewLine + th_name + ": Closed connection with " & myController.MySocket.RemoteEndPoint.ToString() & " due to an error.")
-                myController.MySocket.Dispose()
+                'myController.MySocket.Dispose()
                 myController.IsThreadRunning = False ' Connection closed? End thread.
             End Try
         End While

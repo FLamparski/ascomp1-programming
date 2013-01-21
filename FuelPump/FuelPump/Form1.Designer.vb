@@ -30,11 +30,11 @@ Partial Class Form1
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btn_Connect = New System.Windows.Forms.Button()
         Me.lbl_Status = New System.Windows.Forms.Label()
         Me.en_ConsoleHost = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.btn_Pump = New System.Windows.Forms.Button()
-        Me.btn_Connect = New System.Windows.Forms.Button()
         Me.ss_price_hundreds = New FuelPump.SevenSegDigit()
         Me.ss_price_tens = New FuelPump.SevenSegDigit()
         Me.ss_price_ones = New FuelPump.SevenSegDigit()
@@ -49,6 +49,8 @@ Partial Class Form1
         Me.ss_totalprice_ones = New FuelPump.SevenSegDigit()
         Me.ss_totalprice_decimal = New FuelPump.SevenSegDigit()
         Me.ss_totalprice_hundredth = New FuelPump.SevenSegDigit()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.en_ClientID = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -121,16 +123,27 @@ Partial Class Form1
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.en_ClientID)
+        Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.btn_Connect)
         Me.GroupBox1.Controls.Add(Me.lbl_Status)
         Me.GroupBox1.Controls.Add(Me.en_ConsoleHost)
         Me.GroupBox1.Controls.Add(Me.Label4)
-        Me.GroupBox1.Location = New System.Drawing.Point(180, 2)
+        Me.GroupBox1.Location = New System.Drawing.Point(102, 2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(237, 61)
+        Me.GroupBox1.Size = New System.Drawing.Size(421, 61)
         Me.GroupBox1.TabIndex = 19
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Connection"
+        '
+        'btn_Connect
+        '
+        Me.btn_Connect.Image = Global.FuelPump.My.Resources.Resources.stock_connect
+        Me.btn_Connect.Location = New System.Drawing.Point(363, 17)
+        Me.btn_Connect.Name = "btn_Connect"
+        Me.btn_Connect.Size = New System.Drawing.Size(48, 35)
+        Me.btn_Connect.TabIndex = 3
+        Me.btn_Connect.UseVisualStyleBackColor = True
         '
         'lbl_Status
         '
@@ -165,15 +178,6 @@ Partial Class Form1
         Me.btn_Pump.TabIndex = 20
         Me.btn_Pump.Text = "PUMP (Hold space)"
         Me.btn_Pump.UseVisualStyleBackColor = True
-        '
-        'btn_Connect
-        '
-        Me.btn_Connect.Image = Global.FuelPump.My.Resources.Resources.stock_connect
-        Me.btn_Connect.Location = New System.Drawing.Point(181, 17)
-        Me.btn_Connect.Name = "btn_Connect"
-        Me.btn_Connect.Size = New System.Drawing.Size(48, 35)
-        Me.btn_Connect.TabIndex = 3
-        Me.btn_Connect.UseVisualStyleBackColor = True
         '
         'ss_price_hundreds
         '
@@ -315,6 +319,22 @@ Partial Class Form1
         Me.ss_totalprice_hundredth.Size = New System.Drawing.Size(51, 94)
         Me.ss_totalprice_hundredth.TabIndex = 2
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(181, 20)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(50, 13)
+        Me.Label5.TabIndex = 4
+        Me.Label5.Text = "Client ID:"
+        '
+        'en_ClientID
+        '
+        Me.en_ClientID.Location = New System.Drawing.Point(237, 17)
+        Me.en_ClientID.Name = "en_ClientID"
+        Me.en_ClientID.Size = New System.Drawing.Size(100, 20)
+        Me.en_ClientID.TabIndex = 5
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -375,5 +395,7 @@ Partial Class Form1
     Friend WithEvents en_ConsoleHost As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents btn_Pump As System.Windows.Forms.Button
+    Friend WithEvents en_ClientID As System.Windows.Forms.TextBox
+    Friend WithEvents Label5 As System.Windows.Forms.Label
 
 End Class

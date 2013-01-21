@@ -6,7 +6,14 @@ StationConsole
 </name>
 </assembly>
 <members>
-<member name="P:StationConsole.My.Resources.Resources.ResourceManager">
+<member name="P:StationConsole.PriceSetterDlg.FuelPrice">
+	<summary>
+ Gets or sets the display value of fuel price in the dialog
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:StationConsole.My.Resources.Resources.ResourceManager">
 	<summary>
   Returns the cached ResourceManager instance used by this class.
 </summary>
@@ -19,11 +26,71 @@ StationConsole
 	<summary>
   A strongly-typed resource class, for looking up localized strings, etc.
 </summary>
+</member><member name="M:StationConsole.PumpForm.SetValues(System.String,System.String,System.String)">
+	<summary>
+ Set values which go into boxes in the form
+ </summary>
+	<param name="pumped">Amount of fuel pumped</param>
+	<param name="sale">Total price to pay for the fuel</param>
+	<param name="price">Price per litre of the fuel</param>
+	<remarks></remarks>
+</member><member name="M:StationConsole.PumpForm.SetPumping(System.Boolean)">
+	<summary>
+ Toggles the pumping status on the form
+ </summary>
+	<param name="pumping"></param>
+	<remarks></remarks>
 </member><member name="M:StationConsole.Form1.GetPumpSubform">
 	<summary>
  Produce a new PumpForm attached to this window for worker threads to use.
  </summary>
 	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:StationConsole.DispatcherController.MessageWindow">
+	<summary>
+ Text control which acts as a log window within the GUI.
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:StationConsole.DispatcherController.ThreadName">
+	<summary>
+ Name of the dispatcher thread
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:StationConsole.DispatcherController.MyTcpListener">
+	<summary>
+ TcpListener which the thread uses to dispatch connections
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:StationConsole.DispatcherController.IsThreadRunning">
+	<summary>
+ Control variable; stops the dispatcher when set to False
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:StationConsole.DispatcherController.#ctor(System.String,System.Windows.Forms.Control@,System.Net.Sockets.TcpListener@)">
+	<summary>
+ Creates a new DispatcherController object
+ </summary>
+	<param name="name">Name for the dispatcher thread</param>
+	<param name="log">Log window control</param>
+	<param name="listener">Listener object</param>
+	<remarks></remarks>
+</member><member name="T:StationConsole.DispatcherController">
+	<summary>
+ A simple object which acts as an interface between the GUI thread and the connection dispatcher thread.
+ </summary>
+	<remarks></remarks>
+</member><member name="T:StationConsole.CommunicatorController">
+	<summary>
+ A simple object which allows a worker thread to communicate with the GUI thread.
+ </summary>
 	<remarks></remarks>
 </member>
 </members>
